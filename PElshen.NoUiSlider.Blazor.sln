@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PElshen.NoUiSlider.Blazor", "PElshen.noUiSlider.Blazor\PElshen.NoUiSlider.Blazor.csproj", "{B5078BA5-839F-43CB-9947-A83D57A4AEA9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5078BA5-839F-43CB-9947-A83D57A4AEA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5078BA5-839F-43CB-9947-A83D57A4AEA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5078BA5-839F-43CB-9947-A83D57A4AEA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5078BA5-839F-43CB-9947-A83D57A4AEA9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AF0C4D8E-0293-4CC2-AD62-2BFD751EB6FD}
+	EndGlobalSection
+EndGlobal
