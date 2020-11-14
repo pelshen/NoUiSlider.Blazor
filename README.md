@@ -6,7 +6,7 @@ A Blazor wrapper for [noUiSlider](https://refreshless.com/nouislider/).
 
 ## Installation
 
-The package is vailable from [Nuget](nuget.org/packages/NoUiSlider.Blazor).
+The package is vailable from [Nuget](https://nuget.org/packages/NoUiSlider.Blazor).
 Once you've installed the package in your project:
 1. In your index.html (WebAssembly) or _Host.cshtml (Server):
     1. Add `<link rel="stylesheet" href="_content/NoUiSlider.Blazor/dist/styles.css" />` to your `<head>
