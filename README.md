@@ -2,6 +2,8 @@
 
 A Blazor wrapper for [noUiSlider](https://refreshless.com/nouislider/).
 
+![Nuget (with prereleases)](https://img.shields.io/nuget/vpre/NoUiSlider.Blazor)
+
 ## Installation
 
 The package is vailable from [Nuget](nuget.org/packages/NoUiSlider.Blazor).
