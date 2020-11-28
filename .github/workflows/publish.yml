@@ -30,4 +30,4 @@ jobs:
           PACKAGE_NAME: NoUiSlider.Blazor
           NUGET_KEY: ${secrets.NUGET_API_KEY_INT}
           # NuGet server uri hosting the packages, defaults to https://api.nuget.org
-          NUGET_SOURCE: https://apiint.nugettest.org/v3/index.json
+          NUGET_SOURCE: https://apiint.nugettest.org
