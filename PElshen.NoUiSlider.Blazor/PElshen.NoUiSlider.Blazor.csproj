@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <RazorLangVersion>3.0</RazorLangVersion>
     <AssemblyName>NoUiSlider.Blazor</AssemblyName>
     <RootNamespace>PElshen.NoUiSlider.Blazor</RootNamespace>
@@ -38,8 +38,12 @@
   </ItemGroup>
 
 
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="if $(ConfigurationName) == Release (gulp) else (gulp dev)" />
+  <Target Name="GulpDev" AfterTargets="PostBuildEvent" Condition="$(ConfigurationName) == Debug">
+    <Exec Command="gulp dev" />
+  </Target>
+
+  <Target Name="GulpProd" AfterTargets="PostBuildEvent" Condition="$(ConfigurationName) == Release">
+    <Exec Command="gulp" />
   </Target>
 
 </Project>
