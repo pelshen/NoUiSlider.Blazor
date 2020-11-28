@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  setup:
 
     runs-on: ubuntu-latest
 
@@ -17,13 +17,31 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.404
-    - name: Setup Node.js environment
-      uses: actions/setup-node@v2.1.2
-    - name: Install dependencies
-      run: dotnet restore --verbosity d
-    - name: NPM Install
-      run: npm install
-    - name: Build
-      run: dotnet build --configuration Release --no-restore
-    - name: Test
-      run: dotnet test --no-restore --verbosity normal
+    
+  build-library:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: PElshen.NoUiSlider.Blazor
+    steps:
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.1.2
+      - name: Install dependencies
+        run: dotnet restore --verbosity d
+      - name: NPM Install
+        run: npm install
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+      - name: Test
+        run: dotnet test --no-restore --verbosity normal
+      
+  build-sample:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: PElshen.NoUiSlider.Blazor.Sample
+    steps:
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+      - name: Test
+        run: dotnet test --no-restore --verbosity normal
