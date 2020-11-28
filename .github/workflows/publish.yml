@@ -31,6 +31,6 @@ jobs:
           PROJECT_FILE_PATH: PElshen.NoUiSlider.Blazor/PElshen.NoUiSlider.Blazor.csproj
           # NuGet package id, used for version detection & defaults to project name
           PACKAGE_NAME: NoUiSlider.Blazor
-          NUGET_KEY: ${secrets.NUGET_API_KEY_INT}
+          NUGET_KEY: ${{secrets.NUGET_API_KEY_INT}}
           # NuGet server uri hosting the packages, defaults to https://api.nuget.org
           NUGET_SOURCE: https://apiint.nugettest.org
