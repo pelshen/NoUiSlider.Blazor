@@ -20,7 +20,10 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
+      - uses: actions/setup-node@v2.1.2
+      - name: NPM Install
+        run: npm install
+        working-directory: ./PElshen.NoUiSlider.Blazor
       - name: Publish NuGet
         uses: brandedoutcast/publish-nuget@v2.5.5
         with:
