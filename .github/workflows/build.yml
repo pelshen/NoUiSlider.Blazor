@@ -24,10 +24,7 @@ jobs:
     - name: NPM Install
       run: npm install
       working-directory: ./PElshen.NoUiSlider.Blazor
-    - name: Build Library
-      run: dotnet build --configuration Release --no-restore
-      working-directory: ./PElshen.NoUiSlider.Blazor
-    - name: Build Sample
+    - name: Build Sample (and library as dependent)
       run: dotnet build --configuration Release --no-restore
       working-directory: ./PElshen.NoUiSlider.Blazor.Sample
     - name: Test
