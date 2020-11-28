@@ -17,7 +17,7 @@ function initialiseSlider(id, options) {
         } : undefined
     };
 
-    if (options.pips.filterMultiples) {
+    if (options.pips && options.pips.filterMultiples) {
         sliderOptions.pips.filter = function (value) {
             var type = -1;
             options.pips.filterMultiples.forEach(function (filterMultiple) {
@@ -32,6 +32,15 @@ function initialiseSlider(id, options) {
     noUiSlider.create(slider, sliderOptions);
 
     slider.noUiSlider.on('set', onSet);
+}
+
+function toggleEnableSlider(id, disable) {
+    var slider = document.getElementById(id);
+    if (disable) {
+        slider.setAttribute('disabled', true);
+    } else {
+        slider.removeAttribute('disabled');
+    }
 }
 
 function filterPips(value) {

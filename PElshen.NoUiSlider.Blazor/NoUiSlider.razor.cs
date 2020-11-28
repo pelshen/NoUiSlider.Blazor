@@ -8,11 +8,13 @@ namespace PElshen.NoUiSlider.Blazor
 {
     public partial class NoUiSlider : ComponentBase
     {
+        private bool previousIsDisabled;
+
         [Inject]
         private IJSRuntime JSRuntime { get; set; }
 
         [Parameter]
-        public string Id { get; set; } = "noui-slider";
+        public string IdPrefix { get; set; } = "noui-slider";
 
         /// <summary>
         /// The minimum value on the scale. Required if Options not supplied. Ignored if Options is supplied.
@@ -70,6 +72,9 @@ namespace PElshen.NoUiSlider.Blazor
         /// </summary>
         [Parameter]
         public NoUiSliderOptions Options { get; set; }
+        
+        [Parameter]
+        public bool IsDisabled { get; set; }
 
         [Parameter]
         public double? Value { get; set; }
@@ -86,6 +91,15 @@ namespace PElshen.NoUiSlider.Blazor
         private static Func<double, Task> updateSingleValueFunction;
         private static Func<double[], Task> updateMultipleValuesFunction;
 
+        private Guid uniqueId;
+
+        private string Id => IdPrefix + uniqueId;
+
+        public NoUiSlider()
+        {
+            uniqueId = Guid.NewGuid();
+        }
+
         protected override void OnInitialized()
         {
             updateSingleValueFunction = UpdateValue;
@@ -98,6 +112,15 @@ namespace PElshen.NoUiSlider.Blazor
             {
                 await InitialiseSlider();
             }
+        }
+
+        protected override async Task OnParametersSetAsync()
+        {
+            if (previousIsDisabled != IsDisabled)
+            {
+                await ToggleEnableSlider(IsDisabled);
+            }
+            previousIsDisabled = IsDisabled;
         }
 
         private async Task InitialiseSlider()
@@ -156,6 +179,11 @@ namespace PElshen.NoUiSlider.Blazor
         {
             Values = newValues;
             return ValuesChanged.InvokeAsync(newValues);
+        }
+
+        private async Task ToggleEnableSlider(bool disable)
+        {
+            await JSRuntime.InvokeVoidAsync("toggleEnableSlider", Id, disable);
         }
 
         [JSInvokable]
