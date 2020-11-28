@@ -15,6 +15,12 @@ gulp.task('pack-js', function () {
         .pipe(gulp.dest('wwwroot/dist'));
 });
 
+gulp.task('pack-js-dev', function () {
+    return gulp.src(['wwwroot/js/lib/wNumb.js', 'wwwroot/js/lib/nouislider.js', 'wwwroot/js/*.js'])
+        .pipe(concat('bundle.js'))
+        .pipe(gulp.dest('wwwroot/dist'));
+});
+
 gulp.task('pack-css', function () {
     return gulp.src(['wwwroot/css/lib/*.css', 'wwwroot/css/*.css'])
         .pipe(concat('styles.css'))
@@ -22,4 +28,11 @@ gulp.task('pack-css', function () {
         .pipe(gulp.dest('wwwroot/dist'));
 });
 
+gulp.task('pack-css-dev', function () {
+    return gulp.src(['wwwroot/css/lib/*.css', 'wwwroot/css/*.css'])
+        .pipe(concat('styles.css'))
+        .pipe(gulp.dest('wwwroot/dist'));
+});
+
 gulp.task('default', gulp.series(['pack-js', 'pack-css']));
+gulp.task('dev', gulp.series(['pack-js-dev', 'pack-css-dev']));
