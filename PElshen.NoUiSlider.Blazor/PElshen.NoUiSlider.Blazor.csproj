@@ -39,7 +39,7 @@
 
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="npm install &amp;&amp; ^&#xD;&#xA;if $(ConfigurationName) == Release (gulp) else (gulp dev)" />
+    <Exec Command="if $(ConfigurationName) == Release (gulp) else (gulp dev)" />
   </Target>
 
 </Project>
