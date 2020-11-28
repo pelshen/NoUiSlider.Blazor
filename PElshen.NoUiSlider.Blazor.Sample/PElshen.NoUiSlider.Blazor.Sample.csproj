@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PElshen.noUiSlider.Blazor\PElshen.NoUiSlider.Blazor.csproj" />
+    <ProjectReference Include="..\PElshen.NoUiSlider.Blazor\PElshen.NoUiSlider.Blazor.csproj" />
   </ItemGroup>
 
 </Project>
