@@ -1,0 +1,29 @@
+﻿@page "/"
+
+<h1>NoUiSlider Blazor Component</h1>
+
+<h2>Basic Example</h2>
+<p>Most simple options can be passed in directly</p>
+<div class="code"><pre><code>@BasicExample</code></pre></div>
+<NoUiSlider @bind-Value="ValueBasic" Min="0" Max="100" Tooltips="true" />
+<p>Value: @ValueBasic</p>
+
+<p>Options that can be directly passed in:</p>
+<ul>
+    <li>Min</li>
+    <li>Max</li>
+    <li>Tooltips</li>
+    <li>DecimalPlaces</li>
+    <li>Prefix</li>
+    <li>Suffix</li>
+    <li>DecimalSeparator</li>
+    <li>NegativeSymbol</li>
+    <li>NegativePrefix</li>
+    <li>ThousandsSeparator</li>
+</ul>
+
+<h2>Disabling</h2>
+<p>You can also disable the slider (currently you can only disable the whole slider, not individual handles)</p>
+<div class="code"><pre><code>@DisableExample</code></pre></div>
+<NoUiSlider @bind-Value="ValueBasic" Min="0" Max="100" Tooltips="true" IsDisabled="IsDisabled" />
+<button @onclick="ToggleDisabled">@(IsDisabled ? "Enable" : "Disable")</button>
