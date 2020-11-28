@@ -21,6 +21,8 @@ jobs:
       uses: actions/setup-node@v2.1.2
     - name: Install dependencies
       run: dotnet restore --verbosity d
+    - name: NPM Install
+      run: npm install
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: Test
