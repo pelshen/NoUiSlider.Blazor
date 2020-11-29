@@ -92,6 +92,7 @@ namespace PElshen.NoUiSlider.Blazor
         private static Func<double[], Task> updateMultipleValuesFunction;
 
         private Guid uniqueId;
+        private bool HasRendered;
 
         private string Id => IdPrefix + uniqueId;
 
@@ -111,6 +112,8 @@ namespace PElshen.NoUiSlider.Blazor
             if (firstRender)
             {
                 await InitialiseSlider();
+                HasRendered = true;
+                await ToggleEnableSlider(IsDisabled);
             }
         }
 
@@ -183,7 +186,10 @@ namespace PElshen.NoUiSlider.Blazor
 
         private async Task ToggleEnableSlider(bool disable)
         {
-            await JSRuntime.InvokeVoidAsync("toggleEnableSlider", Id, disable);
+            if (HasRendered)
+            {
+                await JSRuntime.InvokeVoidAsync("toggleEnableSlider", Id, disable);
+            }
         }
 
         [JSInvokable]
