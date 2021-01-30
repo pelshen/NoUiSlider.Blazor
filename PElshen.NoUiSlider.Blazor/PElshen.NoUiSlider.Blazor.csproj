@@ -5,7 +5,7 @@
     <RazorLangVersion>3.0</RazorLangVersion>
     <AssemblyName>NoUiSlider.Blazor</AssemblyName>
     <RootNamespace>PElshen.NoUiSlider.Blazor</RootNamespace>
-    <Version>0.1.3</Version>
+    <Version>0.1.4</Version>
     <Authors>Patrick Elshen</Authors>
     <Product />
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -13,6 +13,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageProjectUrl>https://github.com/pelshen/NoUiSlider.Blazor</PackageProjectUrl>
     <RepositoryUrl>https://github.com/pelshen/NoUiSlider.Blazor</RepositoryUrl>
+    <PackageReleaseNotes>Add option to always show min and max values on scale. Add example for options object to sample.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
@@ -33,16 +34,19 @@
 
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components" Version="3.1.7" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="3.1.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Components" Version="3.1.11" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="3.1.11" />
   </ItemGroup>
 
+  <Target Name="NpmInstall" AfterTargets="PostBuildEvent">
+    <Exec Command="npm install" />
+  </Target>
 
-  <Target Name="GulpDev" AfterTargets="PostBuildEvent" Condition="$(ConfigurationName) == Debug">
+  <Target Name="GulpDev" AfterTargets="NpmInstall" Condition="$(ConfigurationName) == Debug">
     <Exec Command="gulp dev" />
   </Target>
 
-  <Target Name="GulpProd" AfterTargets="PostBuildEvent" Condition="$(ConfigurationName) == Release">
+  <Target Name="GulpProd" AfterTargets="NpmInstall" Condition="$(ConfigurationName) == Release">
     <Exec Command="gulp" />
   </Target>
 

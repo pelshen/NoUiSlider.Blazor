@@ -24,6 +24,7 @@ namespace PElshen.NoUiSlider.Blazor
             public FormatOptions Format { get; set; }
             public int[] Values { get; set; }
             public bool Stepped { get; set; }
+            public bool AlwaysShowMinMax { get; set; }
             public List<PipFilterMultiples> FilterMultiples { get; set; }
         }
 

@@ -22,8 +22,16 @@
     <li>ThousandsSeparator</li>
 </ul>
 
+<h2>Options object</h2>
+<p>For more flexibility, you can use the <code>NoUiSliderOptions</code> object. In general this mirrors the options in the original library.
+    However, as you can't pass a JS function for pip filtering in Steps mode, a couple of preset filtering systems are provided.
+    Specify <code>FilterMultiple</code>s to place the given pip type at the given multiple (in the example below pip type 0 will be placed at multiples of 10 on the scale).
+    You can set <code>AlwaysShowMinMax</code> to true (default is false) to ensure that numbers are shown at the start and end, regardless of other filtering.</p>
+<div class="code"><pre><code>@OptionsExample</code></pre></div>
+<NoUiSlider Options="Options" />
+
 <h2>Disabling</h2>
 <p>You can also disable the slider (currently you can only disable the whole slider, not individual handles)</p>
 <div class="code"><pre><code>@DisableExample</code></pre></div>
-<NoUiSlider @bind-Value="ValueBasic" Min="0" Max="100" Tooltips="true" IsDisabled="IsDisabled" />
+<NoUiSlider @bind-Value="ValueDisabled" Min="0" Max="100" Tooltips="true" IsDisabled="IsDisabled" />
 <button @onclick="ToggleDisabled">@(IsDisabled ? "Enable" : "Disable")</button>

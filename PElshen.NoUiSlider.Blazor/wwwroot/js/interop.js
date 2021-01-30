@@ -6,10 +6,10 @@ function initialiseSlider(id, options) {
         start: options.start,
         range: { min: options.min, max: options.max },
         step: options.step,
-        tooltips: options.tooltips ? wNumb(options.format) : false,
-        format: wNumb(options.format),
+        tooltips: options.tooltips ? (options.format ? wNumb(options.format) : true) : false,
+        format: options.format ? wNumb(options.format) : null,
         pips: options.pips ? {
-            format: wNumb(options.pips.format ? options.pips.format : options.format),
+            format: options.pips.format ? wNumb(options.pips.format) : options.format ? wNumb(options.format) : null,
             mode: options.pips.mode,
             values: options.pips.values,
             density: options.pips.density,
@@ -25,6 +25,11 @@ function initialiseSlider(id, options) {
                     type = filterMultiple.pipType;
                 }
             });
+            if (options.pips.alwaysShowMinMax) {
+                if (value === sliderOptions.range.min || value === sliderOptions.range.max) {
+                    type = 1;
+                }
+            }
             return type;
         }
     }
