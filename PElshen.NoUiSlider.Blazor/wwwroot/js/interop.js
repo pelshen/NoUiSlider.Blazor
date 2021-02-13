@@ -17,14 +17,16 @@ function initialiseSlider(id, options) {
         } : undefined
     };
 
-    if (options.pips && options.pips.filterMultiples) {
+    if (options.pips) {
         sliderOptions.pips.filter = function (value) {
             var type = -1;
-            options.pips.filterMultiples.forEach(function (filterMultiple) {
-                if (value % filterMultiple.multiple == 0) {
-                    type = filterMultiple.pipType;
-                }
-            });
+            if (options.pips.filterMultiples) {
+                options.pips.filterMultiples.forEach(function (filterMultiple) {
+                    if (value % filterMultiple.multiple == 0) {
+                        type = filterMultiple.pipType;
+                    }
+                });
+            }
             if (options.pips.alwaysShowMinMax) {
                 if (value === sliderOptions.range.min || value === sliderOptions.range.max) {
                     type = 1;
