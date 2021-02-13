@@ -5,7 +5,7 @@
     <RazorLangVersion>3.0</RazorLangVersion>
     <AssemblyName>NoUiSlider.Blazor</AssemblyName>
     <RootNamespace>PElshen.NoUiSlider.Blazor</RootNamespace>
-    <Version>0.1.4</Version>
+    <Version>0.1.5</Version>
     <Authors>Patrick Elshen</Authors>
     <Product />
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -13,7 +13,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageProjectUrl>https://github.com/pelshen/NoUiSlider.Blazor</PackageProjectUrl>
     <RepositoryUrl>https://github.com/pelshen/NoUiSlider.Blazor</RepositoryUrl>
-    <PackageReleaseNotes>Add option to always show min and max values on scale. Add example for options object to sample.</PackageReleaseNotes>
+    <PackageReleaseNotes>Allow use of always show min and max values option without specifying other pip filters.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
